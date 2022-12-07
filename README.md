@@ -1,1 +1,0 @@
-# nextJs-Essentials
