@@ -1,10 +1,6 @@
-import Link from "next/link"
+import LinkItem from "../components/linkItem"
 
-//link component
-interface LinkItemProps { path: string; label: string }
-const LinkItem = ({ path, label }: LinkItemProps) => {
-  return <li> <Link href={path}>{label}</Link></li>
-}
+
 //home page 
 const HomePage = () => {
   return (
@@ -12,6 +8,7 @@ const HomePage = () => {
         <LinkItem label="Home" path="/"/>
         <LinkItem label="About" path="/about"/>
         <LinkItem label="My Profile " path="/profil"/>
+        <LinkItem label="My Products " path="/products"/>
     </ul>
   )
 }

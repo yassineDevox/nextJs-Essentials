@@ -1,11 +1,12 @@
 import React from 'react'
+import LinkItem from '../../components/linkItem'
 
 const ListProducts = () => {
     return (
         <ul>
-            <li><a href="#">Product 1</a></li>
-            <li><a href="#">Product 2</a></li>
-            <li><a href="#">Product 3</a></li>
+            <LinkItem path='products/1' label='Hacking course 😈'/>
+            <LinkItem path='products/2' label='Laptop Gamer 💻'/>
+            <LinkItem path='products/3' label='Keyboard Gamer ⌨️'/>
         </ul>
     )
 }
