@@ -1,13 +1,21 @@
+import Link from "next/link"
+import { User } from "./user.type"
 
-interface User {
-  id: number,
-  name: string,
-}
+
 //home page 
 const HomePage = (props: { users: User[] }) => {
   return (
     <ul>
-      {props.users.map((u: User) => <li key={u.id} >{u.name}</li>)}
+      {
+        props.users.map(
+          (u: User) => <li key={u.id} >
+            <Link href={`users/${u.id}`}>
+              goto to {u.id} :
+            </Link>
+            {u.name}
+          </li>
+        )
+      }
     </ul>
   )
 }
