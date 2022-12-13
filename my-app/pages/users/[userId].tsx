@@ -16,7 +16,7 @@ const UserDetails = ({ userDetails }: { userDetails: User }) => {
 
 export default UserDetails
 
-//to get dynamic params with ssg
+//to get dynamic params with SSG
 export async function getStaticPaths() {
     let response = await fetch(`https://jsonplaceholder.typicode.com/users/`)
     const data = await response.json()
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
         fallback: true
     }
 }
-//to get dynamic props with ssg
+//to get dynamic props with SSG
 export async function getStaticProps(context: { params: { userId: string } }) {
     const { params: { userId } } = context
     let data = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
