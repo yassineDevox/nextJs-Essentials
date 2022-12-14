@@ -10,3 +10,9 @@
 - You can statically generate individual pages without needing to rebuild the entire site, effectively solving the issue of dealing with stale data 
 ### How ?
 - In the getStaticProps function, apart from the props key, we can specify a revalidate key the value for it is the number of seconds after which page re-generation can occur 
+### Re-generation
+- It is initiated only if a user makes a request after the revalidate time 
+- If a user visits our product details page but there is no other user hitting that page the entire day, the regeneration does not happen
+- Revalidate does not mean the page will automatically regenerate  every 10 secs
+- It simply denotes the time after which, if a user makes a request, a regeneration has to be initiated 
+- The re-generation can also fail and the previously cashed HTML could be served till the subsequent re-generations succeed 

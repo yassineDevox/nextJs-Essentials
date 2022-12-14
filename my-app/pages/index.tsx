@@ -1,3 +1,4 @@
+import { GetStaticProps } from "next"
 import Link from "next/link"
 import { ROOT_API } from "../constants"
 import { Post } from "./post.type"
@@ -30,8 +31,10 @@ export async function getStaticProps() {
   // console.log(data)
   return {
     props: {
-      posts: data
-    }
+      posts: data,
+    },
+    //tell to next regenerate the productList after 10sec starting from the moment when the user make the second request 
+    revalidate: 10
   }
 
 }
