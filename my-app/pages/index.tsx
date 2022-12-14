@@ -1,18 +1,20 @@
 import Link from "next/link"
-import { User } from "./user.type"
+import { ROOT_API } from "../constants"
+import { Post } from "./post.type"
 
 
 //home page 
-const HomePage = (props: { users: User[] }) => {
+const HomePage = (props: { posts: Post[] }) => {
+  // console.log(props.posts)
   return (
     <ul>
       {
-        props.users.map(
-          (u: User) => <li key={u.id} >
-            <Link href={`users/${u.id}`}>
-              goto to {u.id} :
+        props.posts.map(
+          (p: Post) => <li key={p.id} >
+            <Link href={`posts/${p.id}`}>
+              goto to {p.id} :
             </Link>
-            {u.name}
+            {p.title}
           </li>
         )
       }
@@ -22,13 +24,13 @@ const HomePage = (props: { users: User[] }) => {
 export default HomePage
 
 export async function getStaticProps() {
-  let data = await fetch('https://jsonplaceholder.typicode.com/users')
+  let data = await fetch(`${ROOT_API}/posts`)
   data = await data.json()
   //only on the terminal and in the browser generate an error that it should return an object 
   // console.log(data)
   return {
     props: {
-      users: data
+      posts: data
     }
   }
 

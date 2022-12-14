@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "title 1",
+      "author": "Mohllskksine"
+    },{
+      "id": 2,
+      "title": "Programming",
+      "author": "Yassine"
+    },{
+      "id": 3,
+      "title": "Testing",
+      "author": "Jamalox"
+    }
+  ]
+  
+}
