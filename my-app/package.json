@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "serve-json":"json-server --watch db.json --port=4000",
+    "serve-json": "json-server --watch db.json --port=4000",
     "test": "jest --watchAll"
   },
   "dependencies": {
     "@types/node": "18.11.11",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
+    "axios": "^1.2.1",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
     "next": "13.0.6",
