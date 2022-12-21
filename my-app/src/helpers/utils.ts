@@ -2,11 +2,18 @@ import { PLATFORM } from 'constants/commons';
 import { v4 as uuidv4 } from 'uuid';
 
 export const getFromLocalStorage = (key: string, def: any = '[]') => {
-    return localStorage.getItem(key) || def
+     try {
+        return window.localStorage.getItem(key) || def
+    } catch (error) {
+        return def
+    }
 }
 
 
 export const generateSdata = (lang: string, canal = 'myinwi') => {
+    console.log('====================================');
+    console.log("lang : ",lang);
+    console.log('====================================');
     return Buffer.from(
         JSON.stringify({
             channel: PLATFORM,

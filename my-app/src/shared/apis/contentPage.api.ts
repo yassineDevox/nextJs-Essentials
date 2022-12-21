@@ -21,5 +21,4 @@ export const getStaticURL = () => process.env.NEXT_PHASE === 'phase-production-b
 export const fetchStaticContent = async (payload: MsContentType) => {
     const url = getStaticURL()
     if(url) return api.get(API_ENDPOINT.getMsContent(url,payload))
-
 }

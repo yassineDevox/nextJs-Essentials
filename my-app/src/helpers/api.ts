@@ -30,18 +30,22 @@ api.interceptors.request.use(
       headers: { ...config.headers, sdata },
     };
 
-    if (returnedData?.headers?.Authorization && !isTokenValid())
-      return window.open(PAGES.SIGNIN, '_self');
+    console.log('====================================');
+    console.log("returned Data:",returnedData);
+    console.log('====================================');
 
-    if (user && user.tokenType && user.accessToken) {
-      returnedData.headers[
-        'Authorization'
-      ] = `${user.tokenType} ${user.accessToken}`;
-    }
-    if (user?.tokenType && selectedLine?.mdnSegmentationToken)
-      returnedData.headers[
-        'mdn-segmentation-token'
-      ] = `${user.tokenType} ${selectedLine.mdnSegmentationToken}`;
+    // if (returnedData?.headers?.Authorization && !isTokenValid())
+    //   return window.open(PAGES.SIGNIN, '_self');
+
+    // if (user && user.tokenType && user.accessToken) {
+    //   returnedData.headers[
+    //     'Authorization'
+    //   ] = `${user.tokenType} ${user.accessToken}`;
+    // }
+    // if (user?.tokenType && selectedLine?.mdnSegmentationToken)
+    //   returnedData.headers[
+    //     'mdn-segmentation-token'
+    //   ] = `${user.tokenType} ${selectedLine.mdnSegmentationToken}`;
 
     return returnedData
   },
