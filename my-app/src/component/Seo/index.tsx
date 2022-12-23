@@ -9,7 +9,6 @@ const WithSeo = ({ meta: {
     ogDescription,
     ogImage },
     children }: SeoType) => {
-        console.log(children)
     return (
         <>
             <Head>

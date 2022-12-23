@@ -26,7 +26,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
-  const {data} = await fetchStaticContent({
+  const {data}:any = await fetchStaticContent({
     lang: locale,
     link: NAV_LINKS_MATCHES.HOME_PAGE,
     type: HOME_CONTENT_PAGE_TYPE

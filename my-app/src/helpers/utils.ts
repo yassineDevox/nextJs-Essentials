@@ -1,6 +1,7 @@
 import { PLATFORM } from 'constants/commons';
 import { v4 as uuidv4 } from 'uuid';
 
+//localStorage
 export const getFromLocalStorage = (key: string, def: any = '[]') => {
      try {
         return window.localStorage.getItem(key) || def
