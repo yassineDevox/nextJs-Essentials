@@ -9,8 +9,7 @@ export type MsContentType = {
 
 //api-endpoint
 const API_ENDPOINT = {
-    getMsContent: (url: string, p: MsContentType) => `${url}/api/v1/ms-content/pages?language=${p.lang}&link=${p.link}&full_display=true&type=${p.type}`,
-    
+    getMsContent: (url: string, p: MsContentType) => `${url}/api/v1/ms-content/pages?language=${p.lang}&link=${p.link}&full_display=true&type=${p.type}`,  
 }
 
 
