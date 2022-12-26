@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { PERSISTED_REDUCERS } from "constants/whiteList.persisted";
 import {
     FLUSH,
     PAUSE,
@@ -8,13 +9,28 @@ import {
     REGISTER,
     REHYDRATE,
 } from 'redux-persist';
+import expireReducer from "redux-persist-expire";
 
 import storage from "redux-persist/lib/storage"
-const rootReducer = combineReducers({})
+
+
+const rootReducer = combineReducers({
+
+})
+
+const { ROOT: { PRODUCTS, ORDER_CART, RECHARGE_TYPE } } = PERSISTED_REDUCERS
+
 const persistConfig = {
     key: "root",
-    storage
+    storage,
+    whitelist: [PRODUCTS, ORDER_CART, RECHARGE_TYPE],
+    transforms: expireReducer(PRODUCTS, {
+        expireSeconds: Number(process.env.NEXT_PUBLIC_EXPIRE_CACHE_PRODUCT) || 300,
+        expiredState: {},
+        autoExpire: true
+    })
 }
+
 const persistedReducer =
     persistReducer(
         persistConfig,
@@ -26,7 +42,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: [ FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER ],
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         })
 });
